@@ -1,0 +1,324 @@
+
+<section>
+    <div class="container">
+        <div class="row h-50">
+            <div class="col-sm-10 offset-1 ">
+                <div class="card mt-3">
+                    <div class="card-header bg-secondary">
+                        <h4 class="text-center text-white">Quản Lý Tài Khoản</h4>
+                    </div>
+                    <div ng-show="isLoading" class="loading">
+                        <div class="spinner-border text-primary spinner-center" role="status">
+                        </div>
+                    </div>
+                    <!-- <div class="col-8 offset-2 alert {{ isSuccess == true ? 'alert-success' : 'alert-danger' }}"
+                        ng-show="message.length != 0">
+                        {{ message }}
+                    </div> -->
+
+                    <div class="card-body ">
+                        <div class="row">
+                            <div class="col">
+                                <button data-bs-toggle="modal" data-bs-target="#modal_Insert_{{ item.id }}"
+                                    class="btn btn-dark my-3">Thêm Mới</button>
+                            </div>
+                            <!--start modal-->
+                            <div class="modal fade" id="modal_Insert_{{ item.id }}" tabindex="-1" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title"> Thêm Mới Tài Khoản
+                                            </h5>
+                                            <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <form action="" method="POST" ng-submit="onSubmbitInsert($event)" name="forms">
+                                                <div class="form-group">
+                                                    <label for="username">Tài Khoản</label>
+                                                    <input type="text" ng-model="regis.username" class="form-control"
+                                                        name="username" id="username" required minlength="6" />
+                                                    <small ng-show="forms.username.$error.required"
+                                                        class="form-text text-danger">Vui
+                                                        Lòng
+                                                        Nhập Tên Tài Khoản</small>
+                                                    <small ng-show="forms.username.$error.minlength"
+                                                        class="form-text text-danger">Tên
+                                                        Tài
+                                                        Khoản Phải Hơn 6 Ký Tự</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="password">Mật Khẩu</label>
+                                                    <input minlength="6" type="password" ng-model="regis.password"
+                                                        class="form-control" name="password" id="password" required />
+                                                    <small ng-show="forms.password.$error.required"
+                                                        class="form-text text-danger">Vui
+                                                        lòng
+                                                        nhập mật khẩu</small>
+                                                    <small ng-show="forms.password.$error.minlength"
+                                                        class="form-text text-danger">Mật
+                                                        Khẩu Lơn Hơn 6 Ký Tự</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="fullname">Họ và Tên</label>
+                                                    <input type="text" ng-model="regis.fullname" class="form-control"
+                                                        name="fullname" id="fullname" required minlength="6" />
+                                                    <small ng-show="forms.fullname.$error.required"
+                                                        class="form-text text-danger">
+                                                        Vui lòng nhập họ và tên</small>
+                                                    <small ng-show="forms.fullname.$error.minlength"
+                                                        class="form-text text-danger">
+                                                        Họ và tên Phải lớn hơn 6 ký tự</small>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="email">Email</label>
+                                                    <input type="email" ng-model="regis.email" class="form-control"
+                                                        name="email" id="email" required />
+                                                    <div ng-show="forms.email.$invalid">
+                                                        <small ng-show="forms.email.$error.required"
+                                                            class="form-text text-danger">Vui
+                                                            Lòng
+                                                            Nhập Email</small>
+                                                        <small ng-show="forms.email.$error.email"
+                                                            class="form-text text-danger">Email
+                                                            không
+                                                            đúng định dạng</small>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group my-2">
+                                                    <label for="">Giới Tính: </label>
+                                                    <input ng-model="regis.gender" class="form-check-input" type="radio"
+                                                        name="flexRadioDefault" id="flexRadioDefault1" value="true" />
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Nam
+                                                    </label>
+                                                    <input ng-model="regis.gender" class="form-check-input" type="radio"
+                                                        name="flexRadioDefault" id="flexRadioDefault2" value="false" />
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        Nữ
+                                                    </label>
+                                                </div>
+                                                <div class="form-group my-2">
+                                                    <label for="">Vai trò: </label>
+                                                    <input ng-model="regis.role" class="form-check-input" type="radio"
+                                                        name="role1" id="role1" value="true" />
+                                                    <label class="form-check-label" for="flexRadioDefault1">
+                                                        Admin
+                                                    </label>
+                                                    <input ng-model="regis.role" class="form-check-input" type="radio"
+                                                        name="role1" id="role2" value="false" />
+                                                    <label class="form-check-label" for="flexRadioDefault2">
+                                                        User
+                                                    </label>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="birthday">Ngày Sinh</label>
+                                                    <input type="date" ng-model="regis.birthday" class="form-control"
+                                                        name="birthday" id="birthday" required />
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="schoolfee">Học Phí</label>
+                                                    <input type="number" ng-model="regis.schoolfee" class="form-control"
+                                                        name="schoolfee" id="schoolfee" required min="2000000" />
+                                                    <small ng-show="forms.schoolfee.$error.required"
+                                                        class="form-text text-danger">
+                                                        Vui lòng nhập học phí
+                                                    </small>
+                                                    <small ng-show="forms.schoolfee.$error.min"
+                                                        class="form-text text-danger">
+                                                        Học Phí Phải trên 2.000.000
+                                                    </small>
+                                                </div>
+                                                <div class="form-group text-center mt-3">
+                                                    <button class="btn btn-success" ng-disabled="forms.$invalid"
+                                                        ng-click="">Thêm Mới Tài
+                                                        Khoản</button>
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="modal-footer">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--End modal-->
+                            <div class="table-responsive">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th>Tài Khoản</th>
+                                            <th>Họ Và Tên</th>
+                                            <th>Email</th>
+                                            <th>Giới Tính</th>
+                                            <th>Ngày Sinh</th>
+                                            <th>Học Phí</th>
+                                            <th>Quyền Truy Cập</th>
+                                            <th colspan="2">Thao Tác</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr ng-repeat="item in students">
+                                            <td>{{item.username}}</td>
+                                            <td>{{item.fullname}}</td>
+                                            <td>{{item.email}}</td>
+                                            <td>{{item.gender == "true" ? "Nam":"Nữ"}}</td>
+                                            <td>{{item.birthday|date:'dd-MM-yyyy'}}</td>
+                                            <td>{{item.schoolfee}}</td>
+                                            <td>{{item.role == 'true' ? "Admin":"User"}}</td>
+                                            <td>
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#modal_delete_{{ item.id }}"
+                                                    class="btn btn-danger">Xóa</button>
+                                                <div class="modal fade" id="modal_delete_{{ item.id }}"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Bạn Có Muốn Xóa Hay Không ?
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">Xác nhận xóa?</div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary"
+                                                                    data-bs-dismiss="modal">
+                                                                    Đóng
+                                                                </button>
+                                                                <button type="button"
+                                                                    ng-click="onDelete(item.id,$index)"
+                                                                    class="btn btn-danger">
+                                                                    Xóa
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <button data-bs-toggle="modal"
+                                                    data-bs-target="#modal_update_{{ item.id }}"
+                                                    class="btn btn-info">Sửa</button>
+                                                <div class="modal fade" id="modal_update_{{ item.id }}" tabindex="-1"
+                                                    aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <h5 class="modal-title">Cập Nhật Tài Khoản
+                                                                </h5>
+                                                                <button type="button" class="btn-close"
+                                                                    data-bs-dismiss="modal" aria-label="Close"></button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <form action="" method="POST"
+                                                                    ng-submit="onUpdate($event,item.id)">
+                                                                    <div class="form-group">
+                                                                        <label for="username">Tài Khoản</label>
+                                                                        <input type="text" ng-model="item.username"
+                                                                            class="form-control" name="username"
+                                                                            id="username" disabled minlength="6"
+                                                                            required />
+                                                                        <!-- <small ng-show="forms.username.$error.required" class="form-text text-danger">Vui Lòng
+                                                                                            Nhập Tên Tài Khoản</small>
+                                                                                        <small ng-show="forms.username.$error.minlength" class="form-text text-danger">Tên Tài
+                                                                                            Khoản Phải Hơn 6 Ký Tự</small> -->
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="password">Mật Khẩu</label>
+                                                                        <input type="password" ng-model="item.password"
+                                                                            class="form-control" name="password"
+                                                                            id="password" minlength="6" required />
+                                                                        <!-- <small ng-show="forms.password.$error.required" class="form-text text-danger">Vui lòng
+                                                                                            nhập mật khẩu</small>
+                                                                                        <small ng-show="forms.password.$error.minlength" class="form-text text-danger">Mật
+                                                                                            Khẩu Lơn Hơn 6 Ký Tự</small> -->
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="fullname">Họ và Tên</label>
+                                                                        <input type="text" ng-model="item.fullname"
+                                                                            class="form-control" name="fullname"
+                                                                            id="fullname" maxlength="50" required />
+                                                                        <!-- <small ng-show="forms.fullname.$error.required" class="form-text text-danger">
+                                                                                            Vui lòng nhập họ và tên</small> -->
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="email">Email</label>
+                                                                        <input type="text" ng-model="item.email"
+                                                                            class="form-control" name="email" id="email"
+                                                                            required />
+                                                                        <!-- <div ng-hide="forms.email.$untouched || forms.email.$valid">
+                                                                                            <small ng-show="forms.email.$error.require" class="form-text text-danger">Vui Lòng
+                                                                                                Nhập Email</small>
+                                                                                            <small ng-show="forms.email.$error.email" class="form-text text-danger">Email không
+                                                                                                đúng định dạng</small>
+                                                                                        </div> -->
+                                                                    </div>
+                                                                    <div class="form-group my-2">
+                                                                        <label for="">Giới Tính: </label>
+                                                                        <input ng-model="item.gender"
+                                                                            class="form-check-input" type="radio"
+                                                                            name="flexRadioDefault"
+                                                                            id="flexRadioDefault1" value="true" />
+                                                                        <label class="form-check-label"
+                                                                            for="flexRadioDefault1">
+                                                                            Nam
+                                                                        </label>
+                                                                        <input ng-model="item.gender"
+                                                                            class="form-check-input" type="radio"
+                                                                            name="flexRadioDefault"
+                                                                            id="flexRadioDefault2" value="false" />
+                                                                        <label class="form-check-label"
+                                                                            for="flexRadioDefault2">
+                                                                            Nữ
+                                                                        </label>
+                                                                    </div>
+                                                                    
+                                                                    <div class="form-group">
+                                                                        <label for="birthday">Ngày Sinh
+                                                                            :(yyyy-mm-dd)</label>
+                                                                        <input type="text" ng-model="item.birthday"
+                                                                            class="form-control" name="birthday"
+                                                                            id="birthday" required />
+                                                                    </div>
+                                                                    <div class="form-group">
+                                                                        <label for="schoolfee">Học Phí</label>
+                                                                        <input type="text" ng-model="item.schoolfee"
+                                                                            class="form-control" name="schoolfee"
+                                                                            id="schoolfee" required />
+                                                                        <!-- <small ng-show="forms.schoolfee.$error.require" class="form-text text-danger">
+                                                                                            Vui lòng nhập học phí
+                                                                                        </small>
+                                                                                        <small ng-show="forms.schoolfee.$error.schoolfee" class="form-text text-danger">
+                                                                                            Học Phí Phải trên 2.000.000
+                                                                                        </small> -->
+                                                                    </div>
+                                                                    <div class="form-group my-3">
+                                                                        <button type="submit"
+                                                                            class="btn btn-success">Cập Nhật</button>
+                                                                        <button type="button" class="btn btn-secondary"
+                                                                            data-bs-dismiss="modal">
+                                                                            Đóng
+                                                                        </button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+</section>

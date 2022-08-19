@@ -1,0 +1,158 @@
+ <!--End nav-Menu-->
+ <section class="row">
+    <!--Start Content-->
+    <article class="col-12 mt-2 bg-light ">
+        <div class="container ">
+            <div class="row  text-center">
+                <div class="col- col-sm-4 ">
+                    <img src="https://caodang.fpt.edu.vn/wp-content/uploads/icon-1-110x110.png" alt=""
+                        style="width:60px;" class="img-fluid" data-ll-status="loaded">
+                    <p class="display-6 mt-3 fw-bold font-monospace">97,4%</p>
+                    <p class="small font-monospace fst-italic ">Sinh viên có việc làm</p>
+                </div>
+                <div class="col-12 col-sm-4 ">
+                    <img src="https://caodang.fpt.edu.vn/wp-content/uploads/icon-2-110x110.png" alt=""
+                        style="width:60px;" class="img-fluid" data-ll-status="loaded">
+                    <p class="display-6 mt-3 fw-bold font-monospace">500+</p>
+                    <p class="small font-monospace fst-italic">Doanh nghiệp</p>
+                </div>
+                <div class="col-12 col-sm-4 ">
+                    <img src="https://caodang.fpt.edu.vn/wp-content/uploads/icon-3-110x110.png" alt=""
+                        style="width:60px;" class="img-fluid " data-ll-status="loaded">
+                    <p class="display-6 mt-3 fw-bold font-monospace">40.000+</p>
+                    <p class="small font-monospace fst-italic ">Sinh viên có việc làm</p>
+                </div>
+            </div>
+        </div>
+    </article>
+    <!--end Content-->
+    <!--Start aside-->
+    <!-- <aside class="col-3">
+        <div class="poly-card mt-2">
+            <div class="card">
+                <div class="card-header"> <i class="fas fa-list"></i> DANH MỤC MÔN HỌC</div>
+                <div>
+                    <ul class="list-group">
+                        <li class="list-group-item">Lập trình android nâng cao</li>
+                        <li class="list-group-item">Xây dựng trang web</li>
+                        <li class="list-group-item">Cơ sở dữ liệu</li>
+                        <li class="list-group-item">SQL Sever</li>
+                        <li class="list-group-item">Internet marketing</li>
+                        <li class="list-group-item">LTHDT với Java</li>
+                        <li class="list-group-item">Lập trình PHP</li>
+                        <li class="list-group-item">Điện toán đám mây</li>
+                        <li class="list-group-item">Lập trình android cơ bản</li>
+                        <li class="list-group-item">Lập trình game 2D</li>
+                        <li class="list-group-item">Thiết kê giao diện trên android</li>
+                        <li class="list-group-item">Thiết kế web cho điện thoại di động</li>
+                        <li class="list-group-item">Lập trình ASP.NET</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside> -->
+    <!--end aside-->
+</section>
+<section class="section-2 row">
+    <div class="container">
+        <div class="row bg-white mt-5 ">
+            <div class="col-12 col-md-3 col-sm-6" ng-repeat="item in list_subject |limitTo:8:begin" >
+                <div class=" text-center text-border mt-2 ">
+                    <img src="image/logos/{{item.Logo}}" alt=""><br>
+                    <a href="#/android/{{item.Id}}/{{item.Name}}" class="mt-3 fw-bold">{{item.Name}}</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 mt-5 ">
+            <div class="d-flex justify-content-center">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="first()" aria-label="First">
+                                <span aria-hidden="true">First</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="prev()" aria-label="Previous">
+                                <span aria-hidden="true">Previous</span>
+                            </a>
+                        </li>
+                        <!-- <li class="page-item"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">2</a></li>
+                        <li class="page-item"><a class="page-link" href="#">3</a></li> -->
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="next()" aria-label="Next">
+                                <span aria-hidden="true">Next</span>
+                            </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#" ng-click="last()" aria-label="Last">
+                                <span aria-hidden="true">Last</span>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>
+<div class=" dropdown-divider"></div>
+<section class="mt-5 section-4 container">
+    <div class="row">
+        <div class="col-12">
+            <div class="row">
+                <div class="col-12 col-sm-6">
+                    <h3 class="fw-bold">TIN MỚI NHẤT</h3>
+                    <img width="400" src="https://caodang.fpt.edu.vn/wp-content/uploads/banner-6-768x512.png"
+                        class="attachment-post-thumbnail size-post-thumbnail wp-post-image lazyloaded" alt=""
+                        data-ll-status="loaded"> <br>
+                    <a class="ticket-a-section-4" href="">Cùng sinh viên FPoly Hà Nội ghi chép sáng tạo mang
+                        <br> đậm dấu ấn riêng với Sketchnote</a>
+                    <P class="ticket-p-section-4 small">01/16/2022</P>
+                </div>
+                <div class="col-12 col-sm-6">
+                    <h3 class="fw-bold">GƯƠNG MẶT POLY</h3>
+                    <img width="300" src="image/tienNh.png" alt="" data-ll-status="loaded"> <br>
+                    <a class="ticket-a-section-4  " href="">Trò chuyện cùng thầy Tiến Nh21</a>
+                    <p class="ticket-p-section-4 small">01/16/2022</p>
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="col-12">
+            <div class="row">
+                <div class="col-6  ">
+                    <img width="150" src="image/tienNh.png" class=" float-left img-fluid" alt=""
+                        data-ll-status="loaded">
+                    <a class="ticket-a-section-4" href="">Thầy tiến IT16304</a>
+
+                </div>
+                <div class="col-6  ">
+                    <img width="150"
+                        src="https://caodang.fpt.edu.vn/wp-content/uploads/271601585_5117069608311506_6219495260390321790_n-768x512.jpg"
+                        class=" float-left img-fluid" alt="" data-ll-status="loaded">
+                    <a class="ticket-a-section-4" href="">Thầy tiến IT16304</a>
+
+                </div>
+                <div class="col-6 mt-3 ">
+                    <img width="150" src="https://caodang.fpt.edu.vn/wp-content/uploads/it-1-768x443.png"
+                        class=" float-left img-fluid" alt="" data-ll-status="loaded">
+                    <a class="ticket-a-section-4" href="">Thầy tiến IT16304</a>
+
+                </div>
+                <div class="col-6  ">
+                    <img width="150"
+                        src="https://caodang.fpt.edu.vn/wp-content/uploads/z3111150391374_abd7e8a2a6ecaf3aa95f5bbfa0d24c52-768x432.jpg"
+                        class="mt-3  float-left img-fluid" alt="" data-ll-status="loaded">
+                    <a class="ticket-a-section-4" href="">Thầy tiến IT16304</a>
+
+                </div>
+            </div>
+        </div>
+        <div class="dropdown-divider"></div>
+        <div class="col-md-12 ">
+            <img class="img-fluid"
+                src="https://caodang.fpt.edu.vn/wp-content/uploads/FPT_polytechnic_banner-1.png" alt="">
+        </div>
+    </div>
+</section>

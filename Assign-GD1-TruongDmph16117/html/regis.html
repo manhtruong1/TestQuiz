@@ -1,0 +1,102 @@
+<section>
+    <div class="container">
+        <div class="row h-50">
+            <div class="col-sm-7 offset-3 ">
+                <div class="card mt-3">
+                    <div class="card-header bg-primary">
+                        <h3 class="text-center text-white my-3">Đăng Ký Tài Khoản</h3>
+                    </div>
+                    <!-- <div ng-show="isLoading" class="loading">
+                        <div class="spinner-border text-primary spinner-center" role="status">
+                        </div>
+                    </div> -->
+                    <!-- <div class="col-8 offset-2 alert {{ isSuccess == true ? 'alert-success' : 'alert-danger' }}"
+                        ng-show="message.length != 0">
+                        {{ message }}
+                    </div> -->
+                    <div class="card-body ">
+                        <form action="" method="POST" ng-submit="onSubitform($event)" name="myForms">
+                            <div class="form-group">
+                                <label for="username">Tài Khoản</label>
+                                <input type="text" ng-model="regis.username" class="form-control" name="username"
+                                    id="username" required minlength="6"  />
+                                <small ng-show="myForms.username.$error.required" class="form-text text-danger">Vui
+                                    Lòng
+                                    Nhập Tên Tài Khoản</small>
+                                <small ng-show="myForms.username.$error.minlength" class="form-text text-danger">Tên
+                                    Tài
+                                    Khoản Phải Hơn 6 Ký Tự</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Mật Khẩu</label>
+                                <input minlength="6" type="password" ng-model="regis.password" class="form-control" name="password"
+                                    id="password"  required />
+                                <small ng-show="myForms.password.$error.required" class="form-text text-danger">Vui
+                                    lòng
+                                    nhập mật khẩu</small>
+                                <small ng-show="myForms.password.$error.minlength" class="form-text text-danger">Mật
+                                    Khẩu Lơn Hơn 6 Ký Tự</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="fullname">Họ và Tên</label>
+                                <input type="text" ng-model="regis.fullname" class="form-control" name="fullname"
+                                    id="fullname" required minlength="6"  />
+                                <small ng-show="myForms.fullname.$error.required" class="form-text text-danger">
+                                    Vui lòng nhập họ và tên</small>
+                                <!-- <small ng-show="myForms.fullname.$error.minlength" class="form-text text-danger">
+                                    Họ và tên Phải lớn hơn 6 ký tự</small> -->
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" ng-model="regis.email" class="form-control" name="email" id="email"
+                                    required />
+                                <div ng-show="myForms.email.$invalid">
+                                    <small ng-show="myForms.email.$error.required" class="form-text text-danger">Vui
+                                        Lòng
+                                        Nhập Email</small>
+                                    <small ng-show="myForms.email.$error.email" class="form-text text-danger">Email
+                                        không
+                                        đúng định dạng</small>
+                                </div>
+                            </div>
+                            <div class="form-group my-2">
+                                <label for="">Giới Tính: </label>
+                                <input ng-model="regis.gender" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault1" value="true" />
+                                <label class="form-check-label" for="flexRadioDefault1">
+                                    Nam
+                                </label>
+                                <input ng-model="regis.gender" class="form-check-input" type="radio"
+                                    name="flexRadioDefault" id="flexRadioDefault2" value="false" />
+                                <label class="form-check-label" for="flexRadioDefault2">
+                                    Nữ
+                                </label>
+                            </div>
+                            <div class="form-group">
+                                <label for="birthday">Ngày Sinh</label>
+                                <input type="date" ng-model="regis.birthday" class="form-control" name="birthday"
+                                    id="birthday" required/>
+                            </div>
+                            <div class="form-group">
+                                <label for="schoolfee">Học Phí</label>
+                                <input type="text" ng-model="regis.schoolfee" class="form-control" name="schoolfee"
+                                    id="schoolfee"  required min="2000000" />
+                                    <small ng-show="myForms.schoolfee.$error.required" class="form-text text-danger">
+                                        Vui lòng nhập học phí
+                                    </small>
+                                    <small ng-show="myForms.schoolfee.$error.min" class="form-text text-danger">
+                                        Học Phí Phải trên 2.000.000
+                                    </small>
+                            </div>
+                            <div class="form-group text-center mt-3">
+                                <button class="btn btn-primary" ng-click="">Đăng Ký Tài
+                                    Khoản</button>
+                            </div>
+                        </form>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

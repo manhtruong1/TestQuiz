@@ -1,0 +1,61 @@
+<section>
+    <div class="container">
+        <div class="row mt-5">
+            <div class="col-12 col-sm-7 col-md-5 offset-3">
+                <div class="card">
+                    <div class="card-header bg-dark">
+                        <h4 class="text-center text-white">Đăng Nhập</h4>
+                    </div>
+
+                    <div class="card-body mx-4">
+                        <div class="row">
+                            <div class="col text-center">
+                                <img src="../image/user.png" class="w-50 rounded-circle" alt="Cinque Terre">
+                            </div>
+                        </div>
+
+                        <form action="" name="formLog">
+                            <div class="form-group mt-4">
+                                <label for="username">Tên Đăng Nhập: </label>
+                                <input type="text" ng-model="username" name="username" id="username"
+                                    placeholder="Enter Username" class="form-control mt-2" minlength="5" required>
+                                <small ng-show="formLog.username.$error.required">Vui Lòng Nhập Tên Đăng Nhập</small>
+                                <small ng-show="formLog.username.$error.minlength">Vui Lòng Nhập Nhỏ Hơn 4 ký tự</small>
+                            </div>
+                            <div class="form-group mt-3">
+                                <label for="password">Mật Khẩu: </label>
+                                <input type="password" ng-model="password" name="password" id="password"
+                                    placeholder="Enter Password" class="form-control mt-2" minlength="6" required>
+                                <small ng-show="formLog.password.$error.required">Vui Lòng Nhập Mật Khẩu</small>
+                                <small ng-show="formLog.password.$error.minlength">Mật Khẩu Không Nhập Nhỏ 5 Hơn Ký Tự</small>
+                            </div>
+
+                            <div class="row mt-3 mx-1">
+                                <button ng-click="login()" ng-disabled="formLog.$invalid"  type="button" class="btn btn-success">
+                                    Đăng Nhập
+                                </button>
+
+                                <a href="#fogotPassword" class="mt-2 offset-8 text-decoration-none">Quên Mật Khẩu
+                                    ?</a>
+                            </div>
+
+                        
+
+                            <!-- <div class="row">
+                            <div class="col mt-5">
+                                <button type="button" class="btn btn-primary">
+                                    Đăng Nhập
+                                </button>
+                                <button type="button" class="btn btn-danger">
+                                    Quên Mật Khẩu
+                                </button>
+                            </div>
+                        </div> -->
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
